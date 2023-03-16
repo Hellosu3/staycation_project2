@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Staycations</title>
+  <style>
+    body {
+        
+  font-family: 'Pacifico', cursive;
+
+      margin: 0;
+      padding: 0;
+      background-color: lightpink;
+ 
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrc1ib1cJoDVm6sO7rDN8QQMXBHY0_0imEIUTA8ext-zh-Msmb2Dz9tN1vdeeuSrgaT3c&usqp=CAU);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+    }
+    h1 {
+      text-align: center;
+      margin: 40px 0;
+      font-size: 72px;
+      font-family: 'Brush Script MT', cursive;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    li {
+      width: 30%;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    h2, p {
+      padding: 10px;
+      margin: 0;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 16px;
+      color: #666;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin: 40px 0;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 20px;
+      border: 2px solid #000;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    a:hover {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Staycation</h1>
+  <% if (staycations.length === 0) { %>
+    <p>No staycations found.</p>
+  <% } else { %>
+    <ul>
+      <% staycations.forEach(function(staycation) { %>
+        <li>
+          <h2><%= staycation.location %></h2>
+          <img src="<%= staycation.img %>" alt="<%= staycation.restaurant %>">
+        
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+  <a href="/staycations/new">Add New Staycation</a>
+</body>
+</html>
