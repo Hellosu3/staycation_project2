@@ -33,6 +33,10 @@ const staycationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  address: {
+    type: String,
+    required: false,
+  },
 });
 
 // Create the Staycation model from the schema

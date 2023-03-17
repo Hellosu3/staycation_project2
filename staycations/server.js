@@ -42,6 +42,26 @@ app.post('/staycations', async (req, res) => {
 app.get('/staycations/new', (req, res) => {
 	res.render('new.ejs');
 });
+
+// Show
+app.get('/staycations/:id', async (req, res) => {
+    try {
+  
+      const foundStaycation = await Staycation.findById(req.params.id);
+      if (foundStaycation) {
+        
+        res.render('show.ejs', { staycation: foundStaycation });
+      } else {
+        
+        res.status(404).json({ error: 'Staycation not found' });
+      }
+    } catch (err) {
+
+      res.status(500).json({ error: err.message });
+    }
+  });
+  
+
 app.get('/staycations', (req, res)=>{
     Staycation.find({}, (error, allStaycations)=>{
         res.render('index.ejs', {
@@ -61,7 +81,8 @@ app.get('/staycations/seed', (req, res) => {
 		location: "Monterey, CA",
 		phone: 8313754604,
 		rating: 4.7,
-		cuisine: "Seafood, Italian"
+		cuisine: "Seafood, Italian",
+        address: "39 Fisherman's Wharf, Monterey, California 93940"
 	  },
 	  {
 		restaurant: "Nepenthe",
@@ -70,7 +91,8 @@ app.get('/staycations/seed', (req, res) => {
 		location: "Big Sur, CA",
 		phone: 8316672345,
 		rating: 4.5,
-		cuisine: "American"
+		cuisine: "American",
+        address: "48510 Highway One, Big Sur, California 93920"
 	  },
 	  {
 		restaurant: "Bestia",
@@ -79,7 +101,8 @@ app.get('/staycations/seed', (req, res) => {
 		location: "Los Angeles, CA",
 		phone: 2135145724,
 		rating: 4.6,
-		cuisine: "Italian"
+		cuisine: "Italian",
+        address: "2121 7th Place Los Angeles CA, 90021"
 	  },
 	  {
 		restaurant: "The French Laundry",
@@ -88,16 +111,28 @@ app.get('/staycations/seed', (req, res) => {
 		location: "Napa Valley, CA",
 		phone: 7079442380,
 		rating: 4.6,
-		cuisine: "French"
+		cuisine: "French",
+        address: "6640 Washington st, Yountville, CA 94599",
 	  },
       {
-		restaurant: "San Diego",
-		description: "The French Laundry is probably the most famous and well-known restaurant with three Michelin stars, in Napa by Chef Thomas Keller. The stone farmhouse setting is beyond idyllic, and the food is truly worth the hype...",
-		img: "https://i.imgur.com/hYUAr6Z.jpg",
-		location: "Napa Valley, CA",
-		phone: 7079442380,
-		rating: 4.6,
-		cuisine: "French"
+		restaurant: "Lucha Libre",
+		description: "Blending traditional Mexican food with unique ingredients giving you flavors that will entertain your palate",
+		img: "https://i.imgur.com/q8m81gm.jpg",
+		location: "San Diego, CA",
+		phone: 6194871520,
+		rating: 4.3,
+		cuisine: "Mexican",
+        address: "3016 University Ave San Diego, CA 92103",
+	  },
+      {
+		restaurant: "Brophy Bros",
+		description: "Harbor views, fresh seafood, and bustling crowd",
+		img: "https://i.imgur.com/l5Of7d3.jpg",
+		location: "Santa Barbara, CA",
+		phone: 8059664418,
+		rating: 4.5,
+		cuisine: "Seafood, Cocktail Bars, Sandwiches",
+        address: "119 Harbor Way Santa Barbara, CA 93109",
 	  },
 
 	], (err, data) => {

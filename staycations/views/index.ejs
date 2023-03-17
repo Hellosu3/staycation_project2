@@ -78,20 +78,22 @@
   </style>
 </head>
 <body>
-  <h1>Staycation</h1>
-  <% if (staycations.length === 0) { %>
-    <p>No staycations found.</p>
-  <% } else { %>
-    <ul>
-      <% staycations.forEach(function(staycation) { %>
-        <li>
-          <h2><%= staycation.location %></h2>
-          <img src="<%= staycation.img %>" alt="<%= staycation.restaurant %>">
-        
-        </li>
-      <% }) %>
-    </ul>
-  <% } %>
-  <a href="/staycations/new">Add New Staycation</a>
-</body>
-</html>
+    <h1>Staycation</h1>
+    <% if (staycations.length === 0) { %>
+      <p>No staycations found.</p>
+    <% } else { %>
+      <ul>
+        <% staycations.forEach(function(staycation) { %>
+          <li>
+            <h2><%= staycation.location %></h2>
+            <a href="/staycations/<%= staycation._id %>">
+              <img src="<%= staycation.img %>" alt="<%= staycation.restaurant %>">
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+    <a href="/staycations/new">Add New Staycation</a>
+  </body>
+  </html>
+  

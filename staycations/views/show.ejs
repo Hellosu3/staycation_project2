@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staycation Details</title>
+</head>
+<body>
+    <h1><%= staycation.restaurant %></h1>
+    <img src="<%= staycation.img %>" alt="<%= staycation.restaurant %> Image">
+    <p><strong>Description:</strong> <%= staycation.description %></p>
+    <p><strong>Location:</strong> <%= staycation.location %></p>
+    <p><strong>Address:</strong> <%= staycation.address %></p>
+    <p><strong>Phone:</strong> <%= staycation.phone %></p>
+    <p><strong>Cuisine:</strong> <%= staycation.cuisine %></p>
+    <p><strong>Rating:</strong> <%= staycation.rating %></p>
+    <a href="/staycations/<%= staycation._id %>/edit">Edit</a>
+    <form action="/staycations/<%= staycation._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+</body>
+</html>
