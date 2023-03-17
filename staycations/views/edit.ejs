@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Staycation</title>
+  </head>
+  <body>
+    <h1>Edit Staycation</h1>
+    <form action="/staycations/<%= staycation._id %>?_method=PUT" method="POST">
+      <div>
+        <label for="restaurant">Restaurant:</label>
+        <input type="text" id="restaurant" name="restaurant" value="<%= staycation.restaurant %>">
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"><%= staycation.description %></textarea>
+      </div>
+      <div>
+        <label for="img">Image URL:</label>
+        <input type="text" id="img" name="img" value="<%= staycation.img %>">
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" value="<%= staycation.location %>">
+      </div>
+      <div>
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" value="<%= staycation.phone %>">
+      </div>
+      <div>
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" step="0.1" min="0" max="5" value="<%= staycation.rating %>">
+      </div>
+      <div>
+        <label for="cuisine">Cuisine:</label>
+        <input type="text" id="cuisine" name="cuisine" value="<%= staycation.cuisine %>">
+      </div>
+      <div>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" value="<%= staycation.address %>">
+      </div>
+      <input type="submit" value="Update Staycation">
+    </form>
+    <a href="/staycations/<%= staycation._id %>">Back to Staycation</a>
+  </body>
+</html>

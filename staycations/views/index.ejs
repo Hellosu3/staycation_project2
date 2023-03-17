@@ -76,24 +76,31 @@
       color: #fff;
     }
   </style>
+<head>
+    <title>Staycation</title>
 </head>
 <body>
-    <h1>Staycation</h1>
-    <% if (staycations.length === 0) { %>
-      <p>No staycations found.</p>
-    <% } else { %>
-      <ul>
-        <% staycations.forEach(function(staycation) { %>
-          <li>
-            <h2><%= staycation.location %></h2>
-            <a href="/staycations/<%= staycation._id %>">
-              <img src="<%= staycation.img %>" alt="<%= staycation.restaurant %>">
-            </a>
-          </li>
-        <% }) %>
-      </ul>
-    <% } %>
-    <a href="/staycations/new">Add New Staycation</a>
-  </body>
-  </html>
+  <h1>Staycation</h1>
+  <% if (staycations.length === 0) { %>
+    <p>No staycations found.</p>
+  <% } else { %>
+    <ul>
+      <% staycations.forEach(function(staycation) { %>
+        <li>
+          <h2><%= staycation.location %></h2>
+          <a href="/staycations/<%= staycation._id %>">
+            <img src="<%= staycation.img %>" alt="<%= staycation.restaurant %>">
+          </a>
+          <!-- <a href="/staycations/<%= staycation._id %>/edit">Edit</a>
+          <form action="/staycations/<%= staycation._id %>?_method=DELETE" method="POST">
+            <input type="submit" value="Delete"> -->
+          </form>
+          
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+  <a href="/staycations/new">Add New Staycation</a>
+</body>
+
   
