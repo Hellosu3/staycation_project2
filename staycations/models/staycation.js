@@ -17,6 +17,10 @@ const staycationSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cityImg: {
+    type: String,
+    required: false,
+  },
   location: {
     type: String,
     required: true,
@@ -37,6 +41,14 @@ const staycationSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  price: {
+    type: String,
+    required: false,
+  },
+  hours: {
+    type: String,
+    required: false,
+  }
 });
 
 // Create the Staycation model from the schema

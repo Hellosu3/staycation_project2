@@ -2,21 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staycation Details</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: beige;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrc1ib1cJoDVm6sO7rDN8QQMXBHY0_0imEIUTA8ext-zh-Msmb2Dz9tN1vdeeuSrgaT3c&usqp=CAU); 
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 72px;
+            font-family: 'Sacramento', regular;
+            
+        }
+
+        img {
+            width: 40%;
+            height: 400px;
+            object-fit: cover;
+            margin-bottom: 40px;
+            margin-left: 500px;
+        }
+
+        p {
+            padding: 10px;
+            margin: 0;
+            font-size: 20px;
+            color: #0d0d0d;
+            margin-left: 40px;
+            /* font-family: ; */
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin: 40px 0;
+            color: #201f1f;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            border: 2px solid #000;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-family: 'Sacramento', regular;
+            font-size: 40px;
+        }
+
+        a:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        form button[type="submit"] {
+            display: block;
+            text-align: center;
+            margin: 40px auto;
+            color: #fff;
+            background-color: #f44336;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            padding: 10px 40px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-family: 'Sacramento', regular;
+            font-size: 40px;
+        }
+
+        form button[type="submit"]:hover {
+            background-color: #d32f2f;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1><%= staycation.restaurant %></h1>
     <img src="<%= staycation.img %>" alt="<%= staycation.restaurant %> Image">
     <p><strong>Description:</strong> <%= staycation.description %></p>
     <p><strong>Location:</strong> <%= staycation.location %></p>
+    <p><strong>Hours:</strong> <%= staycation.hours %></p>
     <p><strong>Address:</strong> <%= staycation.address %></p>
     <p><strong>Phone:</strong> <%= staycation.phone %></p>
     <p><strong>Cuisine:</strong> <%= staycation.cuisine %></p>
     <p><strong>Rating:</strong> <%= staycation.rating %></p>
-    <a href="/staycations/<%= staycation._id %>/edit">Edit</a>
+    <p><strong>Price:</strong> <%= staycation.price %></p>
+  
     <form action="/staycations/<%= staycation._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete</button>
+        <a href="/staycations/<%= staycation._id %>/edit">Edit</a>
+     
     </form>
     <a href="/staycations/">Back Home</a>
 </body>

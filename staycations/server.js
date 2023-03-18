@@ -4,9 +4,22 @@ const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
 const staycationsController = require('./controllers/staycations.js');
+const session = require('express-session');
 // Dependencies
 const mongoose = require('mongoose');
 const staycation = require('./models/staycation.js');
+
+const SESSION_SECRET = process.env.SESSION_SECRET
+console.log('session')
+console.log('session_secret')
+//session with secret
+app.use(session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+}))
+
+
 
 // Middleware
 // Body parser middleware: give us access to req.body

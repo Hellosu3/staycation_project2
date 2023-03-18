@@ -1,47 +1,119 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Create New Staycation</title>
+    <title>New Staycation</title>
+
+    <style>
+      body {
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: beige;
+      }
+  
+      h1 {
+          text-align: center;
+          margin: 40px 0;
+          font-size: 72px;
+          font-family: 'Sacramento', regular;
+      }
+  
+      form {
+          width: 50%;
+          margin: 0 auto;
+          padding: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+  
+      label {
+          display: block;
+          margin-bottom: 10px;
+          font-size: 20px;
+          font-weight: bold;
+      }
+  
+      input[type="text"],
+      textarea,
+      input[type="number"],
+      input[type="tel"] {
+          width: 100%;
+          padding: 10px;
+          font-size: 16px;
+          border-radius: 5px;
+          border: none;
+          margin-bottom: 20px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+  
+      input[type="submit"],
+      button[type="submit"] {
+          display: block;
+          margin: 40px auto;
+          background-color: #000;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          font-size: 20px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.3s ease;
+      }
+  
+      input[type="submit"]:hover,
+      button[type="submit"]:hover {
+          background-color: #fff;
+          color: #000;
+      }
+  
+      a {
+          display: block;
+          text-align: center;
+          margin-top: 40px;
+          color: #000;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 20px;
+      }
+  </style>
+  
 </head>
+
 <body>
-  <h1>Create New Staycation</h1>
-  <form method="POST" action="/staycations">
-    <div>
-      <label for="restaurant">Restaurant:</label>
-      <input type="text" id="restaurant" name="restaurant" required>
-    </div>
-    <div>
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" required></textarea>
-    </div>
-    <div>
-      <label for="img">Image URL:</label>
-      <input type="url" id="img" name="img" required>
-    </div>
-    <div>
-      <label for="location">Location:</label>
-      <input type="text" id="location" name="location" required>
-    </div>
-    <div>
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required>
-    </div>
-    <div>
-      <label for="rating">Rating:</label>
-      <input type="number" id="rating" name="rating" min="1" max="5" required>
-    </div>
-    <div>
-      <label for="cuisine">Cuisine:</label>
-      <input type="text" id="cuisine" name="cuisine" required>
-    </div>
-    <div>
+    <h1>New Staycation</h1>
+    <form action="/staycations" method="POST">
+        <label for="restaurant">Restaurant:</label>
+        <input type="text" id="restaurant" name="restaurant" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        <br>
+        <label for="img">Image URL:</label>
+        <input type="text" id="img" name="img" required>
+        <br>
+        <label for="cityImg">City Image URL:</label>
+        <input type="text" id="cityImg" name="cityImg" required>
+        <br>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+        <br>
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        <br>
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="0" max="5" step="0.1" required>
+        <br>
+        <label for="cuisine">Cuisine:</label>
+        <input type="text" id="cuisine" name="cuisine" required>
+        <br>
         <label for="address">Address:</label>
-        <input type="text" id="adress" name="address" required>
-    </div>
-    <div>
-        <button type="submit">Create</button>
-    </div>
-  </form>
+        <input type="text" id="address" name="address" required>
+        <br>
+        <label for="price">Price Range:</label>
+        <input type="text" id="price" name="price" required>
+        <br>
+        <label for="hours">Hours:</label>
+        <input type="text" id="hours" name="hours" required>
+        <br>
+        <button type="submit">Create Staycation</button>
+    </form>
 </body>
 </html>
